@@ -11,7 +11,7 @@ resource "aws_instance" "AWS-instance" {
   vpc_security_group_ids  = ["sg-0fb0b81f7d9210a79"]
   instance_type           = "t2.micro"
   tags = {
-    Name = "x21242887-test1"
+    Name = "team7-python-server"
   }
 
  
