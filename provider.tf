@@ -25,7 +25,12 @@ resource "null_resource" "name" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo mkdir testhello_team7"
+      "mkdir django-apps"
+      "cd django-apps"
+      "virtualenv env"
+      ". env/bin/activate"
+      "pip install django"
+      "sudo ufw allow 8000"
     ]
   }
 }
