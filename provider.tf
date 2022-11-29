@@ -25,7 +25,7 @@ resource "null_resource" "name" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo mkdir django-apps"
+      "sudo mkdir apps-team7"
     ]
   }
 }
