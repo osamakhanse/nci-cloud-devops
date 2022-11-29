@@ -10,7 +10,7 @@ resource "aws_instance" "AWS-instance" {
   vpc_security_group_ids  = ["sg-0fb0b81f7d9210a79"]
   instance_type           = "t2.micro"
   tags = {
-    Name = "team7-testServer"
+    Name = "team7-Devops-v1.0"
   }
 }
   
@@ -25,7 +25,7 @@ resource "null_resource" "name" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo mkdir appsteam7"
+      "sudo mkdir appsteam7-1"
     ]
   }
 }
