@@ -4,7 +4,7 @@ provider "aws" {
 
  
 
-resource "aws_instance" "ec2_instance" {
+resource "aws_instance" "AWS-instance" {
   count                   = 1
   key_name                = "x21242887-jenkins" 
   ami                     = "ami-096800910c1b781ba"
@@ -21,7 +21,7 @@ resource "null_resource" "name" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("x21242887-jenkins.pem")
-    host        = aws_instance.ec2_instance.public_ip
+    host        = aws_instance.AWS-instance.public_ip
   }
 
   provisioner "remote-exec" {
