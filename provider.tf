@@ -4,7 +4,7 @@ provider "aws" {
 
  
 
-resource "aws_instance" "AWS-instance" {
+resource "aws_instance" "ec2_instance" {
   count                   = 1
   key_name                = "x21242887-jenkins" 
   ami                     = "ami-096800910c1b781ba"
@@ -13,7 +13,20 @@ resource "aws_instance" "AWS-instance" {
   tags = {
     Name = "team7-python-server"
   }
+}
+  
+resource "null_resource" "name" {
 
- 
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = file("x21242887-jenkins.pem")
+    host        = aws_instance.ec2_instance.public_ip
+  }
 
+  provisioner "remote-exec" {
+    inline = [
+      "sudo mkdir testhello_team7"
+    ]
+  }
 }
