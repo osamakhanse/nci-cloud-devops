@@ -37,7 +37,7 @@ resource "null_resource" "name" {
       type        = "ssh"
       user        = "ubuntu"
       private_key = file("x21242887-jenkins.pem")
-      host        = "ec2-34-244-92-217.eu-west-1.compute.amazonaws.com"
+      host        = aws_instance.AWS-instance.public_ip
 
     }
     
