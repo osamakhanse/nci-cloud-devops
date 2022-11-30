@@ -1,0 +1,13 @@
+[Unit]
+Description=aoe django service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=/usr/bin/env python3 /home/ubuntu/AOE/manage.py runserver 0.0.0.0:8000
+
+[Install]
+WantedBy=multi-user.target
