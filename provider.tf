@@ -25,7 +25,7 @@ resource "null_resource" "name" {
   
   provisioner "file" {
     source      = "aoedjango.service"
-    destination = "/etc/systemd/system/aoedjango.service"
+    destination = "aoedjango.service"
 
     connection {
       type        = "ssh"
@@ -36,4 +36,11 @@ resource "null_resource" "name" {
     }
     
   }
+  
+  provisioner "remote-exec" {
+    inline = [
+      "sudo cp aoedjango.service /etc/systemd/system/"
+    ]
+  }
+  
 }
