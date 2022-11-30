@@ -22,12 +22,6 @@ resource "null_resource" "name" {
     private_key = file("x21242887-jenkins.pem")
     host        = aws_instance.AWS-instance.public_ip
   }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo systemctl enable aoedjango"
-    ]
-  }
   
   provisioner "file" {
     source      = "aoedjango.service"
