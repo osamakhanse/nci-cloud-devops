@@ -25,7 +25,7 @@ resource "null_resource" "name" {
   
   provisioner "file" {
     source      = "aoedjango.service"
-    destination = "/etc/systemd/system"
+    destination = "/etc/systemd/system/aoedjango.service"
 
     connection {
       type        = "ssh"
